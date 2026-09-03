@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import confetti from 'canvas-confetti';
-import { Mail, Copy, Check, Send, Sparkles, MapPin, Github, Linkedin, Instagram, ArrowUpRight, MessageSquare } from 'lucide-react';
+import { Mail, Copy, Check, Send, Sparkles, MapPin, Github, Linkedin, Instagram, ArrowUpRight, MessageSquare, AlertCircle } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { TiltCard } from './TiltCard';
 
@@ -16,6 +16,7 @@ export const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
@@ -23,14 +24,51 @@ export const ContactSection: React.FC = () => {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setSending(true);
+    setErrorMessage(null);
 
-    // Simulate reliable dispatch
-    setTimeout(() => {
+    const apiUrl =
+      import.meta.env.VITE_FORMCONNECT_API_URL ||
+      'https://formconnect.onrender.com';
+    const apiKey =
+      import.meta.env.VITE_FORMCONNECT_API_KEY ||
+      'fc_live_e95e9fdf4fa86702779bea219e53402f';
+
+    const endpoint = apiUrl.endsWith('/api/submit')
+      ? apiUrl
+      : `${apiUrl.replace(/\/$/, '')}/api/submit`;
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          apiKey: apiKey,
+          data: {
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject || 'Portfolio Inquiry',
+            message: formData.message,
+            project: 'portfolio2',
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        throw new Error(
+          errorData?.message ||
+            errorData?.error ||
+            `Submission failed with status ${response.status}`
+        );
+      }
+
       setSending(false);
       setSubmitted(true);
 
@@ -41,7 +79,13 @@ export const ContactSection: React.FC = () => {
         origin: { y: 0.7 },
         colors: ['#06b6d4', '#6366f1', '#a855f7', '#10b981'],
       });
-    }, 1200);
+    } catch (err: any) {
+      console.error('FormConnect transmission failed:', err);
+      setSending(false);
+      setErrorMessage(
+        err?.message || 'Failed to dispatch message. Please try again or email directly.'
+      );
+    }
   };
 
   return (
@@ -245,6 +289,16 @@ export const ContactSection: React.FC = () => {
                       className="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20 text-sm resize-none transition-all shadow-xs"
                     />
                   </div>
+
+                  {errorMessage && (
+                    <div className="p-3.5 rounded-xl bg-red-50 border border-red-200/80 flex items-start gap-2.5 text-xs text-red-700">
+                      <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                      <div>
+                        <span className="font-semibold block mb-0.5">Submission issue</span>
+                        {errorMessage}
+                      </div>
+                    </div>
+                  )}
 
                   <button
                     type="submit"
