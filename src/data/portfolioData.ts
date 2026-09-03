@@ -18,7 +18,7 @@ export const PERSONAL_INFO = {
   status: "Available for high-impact roles, internships & freelance projects",
   bioShort: "From Wayanad district, Kerala, currently in Bengaluru pursuing BCA in Data Analytics at Kristu Jayanti University. Combining modern frontend craft with data analytics and systems engineering.",
   stats: [
-    { label: "Active Repositories", value: "15+" },
+    { label: "Active Repositories", value: "6+" },
     { label: "Academic Specialization", value: "BCA Analytics" },
     { label: "Core Technologies", value: "React • Python • Node" },
     { label: "Industry Experience", value: "Kenmerk Softwares" }
