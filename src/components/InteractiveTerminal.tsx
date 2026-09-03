@@ -42,9 +42,17 @@ export const InteractiveTerminal: React.FC = () => {
   ]);
 
   const endRef = useRef<HTMLDivElement>(null);
+  const historyContainerRef = useRef<HTMLDivElement>(null);
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    if (historyContainerRef.current) {
+      historyContainerRef.current.scrollTop = historyContainerRef.current.scrollHeight;
+    }
   }, [history]);
 
   const executeCommand = (cmdStr: string) => {
@@ -234,7 +242,7 @@ export const InteractiveTerminal: React.FC = () => {
       </div>
 
       {/* Terminal History */}
-      <div className="p-4 space-y-3 max-h-[260px] overflow-y-auto text-xs leading-relaxed bg-white">
+      <div ref={historyContainerRef} className="p-4 space-y-3 max-h-[260px] overflow-y-auto text-xs leading-relaxed bg-white">
         {history.map((item) => (
           <div key={item.id} className="space-y-1">
             <div className="flex items-center gap-2 text-slate-400 text-[11px]">

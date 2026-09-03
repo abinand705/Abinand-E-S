@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CustomCursor } from './components/CustomCursor';
 import { ParallaxBackground } from './components/ParallaxBackground';
 import { ScrollProgress } from './components/ScrollProgress';
@@ -21,6 +21,14 @@ import { Footer } from './components/Footer';
 
 export default function App() {
   const [cursorEnabled, setCursorEnabled] = useState(true);
+
+  useEffect(() => {
+    // Prevent browser from restoring previous scroll position on refresh
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-transparent text-slate-900 overflow-x-hidden selection:bg-emerald-500/30 selection:text-emerald-950 font-sans">
