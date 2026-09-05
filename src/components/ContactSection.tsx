@@ -240,7 +240,7 @@ export const ContactSection: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="pt-4 flex justify-center gap-4">
+                  <div className="pt-4 flex justify-center">
                     <button
                       onClick={() => {
                         setSubmitted(false);
@@ -250,12 +250,6 @@ export const ContactSection: React.FC = () => {
                     >
                       Send Another Message
                     </button>
-                    <a
-                      href={`mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(formData.message)}`}
-                      className="px-6 py-2.5 rounded-xl text-xs font-mono text-white bg-emerald-600 hover:bg-emerald-500 transition-all shadow-xs"
-                    >
-                      Open Email Client
-                    </a>
                   </div>
                 </div>
               ) : (
