@@ -117,6 +117,24 @@ export const PROJECTS: Project[] = [
     stats: { label: "Benchmark", value: "Sub-ms Precision" }
   },
   {
+    id: "formconnect",
+    title: "FormConnect",
+    tagline: "Self-Hosted Form Submission Backend & Analytics Dashboard",
+    description: "A developer-first, self-hosted form submission backend and analytics dashboard. Features multi-tenant project management, instant API key issuance, rate-limiting spam protection, and automated email transmissions without third-party dependencies.",
+    category: "fullstack",
+    tags: ["Node.js", "Express", "React 19", "Prisma ORM", "JWT Auth", "REST APIs", "Rate Limiting"],
+    link: "https://formconnect.onrender.com",
+    githubLink: "https://github.com/abinand705/formconnect",
+    featured: true,
+    accentColor: "emerald",
+    highlights: [
+      "Multi-tenant project management with instant API key issuance and rate-limiting abuse protection",
+      "Dynamic JSON schema payload ingestion with automated email dispatch pipelines",
+      "Full-stack architecture pairing an Express/Prisma backend with a sleek React analytics dashboard"
+    ],
+    stats: { label: "Architecture", value: "REST API + Dash" }
+  },
+  {
     id: "sci-calculator",
     title: "Sci-Calculator",
     tagline: "Android Scientific Computation & Equation Solver",
@@ -133,6 +151,24 @@ export const PROJECTS: Project[] = [
       "Persistent calculation history reel with quick expression reuse"
     ],
     stats: { label: "Platform", value: "Native Android" }
+  },
+  {
+    id: "expence-tracker",
+    title: "MoneyTrack (Expense Tracker)",
+    tagline: "Automated SMS-Parsing Personal Finance & Expense Tracker",
+    description: "A cross-platform financial management application engineered with Flutter and Dart. Automatically captures and parses bank transaction SMS messages with idempotent SHA-256 fingerprinting and synchronizes records in real time with Firebase Firestore.",
+    category: "tools",
+    tags: ["Flutter", "Dart", "Firebase Firestore", "Regex Engine", "SHA-256 Fingerprinting", "Android"],
+    link: "https://github.com/abinand705/expence-tracker",
+    githubLink: "https://github.com/abinand705/expence-tracker",
+    featured: true,
+    accentColor: "amber",
+    highlights: [
+      "Deterministic regex engine and SHA-256 fingerprint generator preventing duplicate transaction ingestion",
+      "Per-user cloud isolation with Firebase Auth and granular Firestore Security Rules",
+      "Real-time reactive Flutter UI featuring category budget tracking and spending breakdown analytics"
+    ],
+    stats: { label: "Mobile", value: "Flutter + Firebase" }
   }
 ];
 
@@ -188,7 +224,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     color: "from-amber-500/20 to-orange-500/20",
     skills: [
       { name: "Git, GitHub & Branching", level: 90, experience: "Source Control", category: "Tools" },
-      { name: "Android SDK (Kotlin)", level: 78, experience: "Native App Development", category: "Mobile" },
+      { name: "Mobile (Flutter/Dart & Android)", level: 82, experience: "Cross-Platform & Native", category: "Mobile" },
       { name: "Linux / Terminal CLI", level: 85, experience: "Dev Environment & Scripting", category: "Tools" },
       { name: "Algorithmic Problem Solving", level: 86, experience: "Data Structures & Logic", category: "Fundamentals" }
     ]

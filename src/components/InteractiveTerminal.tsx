@@ -105,7 +105,7 @@ export const InteractiveTerminal: React.FC = () => {
       case 'projects':
         output = (
           <div className="text-xs space-y-2 text-slate-700">
-            <p className="text-teal-700 font-semibold">[FEATURED REPOSITORIES & SHIPPED BUILDS]</p>
+            <p className="text-teal-700 font-semibold">[FEATURED REPOSITORIES & SHIPPED BUILDS (6)]</p>
             <div>
               <a href="https://diagram-studio.onrender.com" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">1. Smart Diagram Studio</a>
               <span className="text-slate-500 text-[11px] block">Full-stack visual graph tool with Firebase sync & undo/redo canvas</span>
@@ -115,12 +115,20 @@ export const InteractiveTerminal: React.FC = () => {
               <span className="text-slate-500 text-[11px] block">Procedural canvas weather visualization engine with 60 FPS shaders</span>
             </div>
             <div>
-              <a href="https://github.com/abinand705/NEO-SPEEDSTER" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">3. NEO-SPEEDSTER</a>
+              <a href="https://formconnect.onrender.com" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">3. FormConnect</a>
+              <span className="text-slate-500 text-[11px] block">Self-hosted form submission backend API with JWT authentication & React dashboard</span>
+            </div>
+            <div>
+              <a href="https://github.com/abinand705/NEO-SPEEDSTER" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">4. NEO-SPEEDSTER</a>
               <span className="text-slate-500 text-[11px] block">Client-side network telemetry and latency quantification utility</span>
             </div>
             <div>
-              <a href="https://github.com/abinand705/Sci-Calculator" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">4. Sci-Calculator</a>
-              <span className="text-slate-500 text-[11px] block">Native Android Kotlin calculator with algorithmic parsing</span>
+              <a href="https://github.com/abinand705/expence-tracker" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">5. MoneyTrack (Expense Tracker)</a>
+              <span className="text-slate-500 text-[11px] block">Flutter & Dart mobile finance app with automated SMS parsing & Firebase sync</span>
+            </div>
+            <div>
+              <a href="https://github.com/abinand705/Sci-Calculator" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">6. Sci-Calculator</a>
+              <span className="text-slate-500 text-[11px] block">Native Android Kotlin calculator with algorithmic parsing & Material UI</span>
             </div>
           </div>
         );
