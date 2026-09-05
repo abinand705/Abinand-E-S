@@ -86,7 +86,7 @@ export const AboutSection: React.FC = () => {
                     As a developer pursuing a <strong className="text-slate-900 font-semibold">Bachelor of Computer Applications in Data Analytics at Kristu Jayanti University</strong>, I combine the analytical rigor of computational data science with the creative freedom of modern web engineering.
                   </p>
                   <p>
-                    From contributing to <span className="text-emerald-700 font-semibold">ChefCo Hospitality Partners</span> (a live B2B procurement platform) during my web development internship at <span className="text-emerald-700 font-semibold">Kenmerk Softwares</span>, to engineering cloud diagramming suites like <span className="text-emerald-700 font-semibold">Smart Diagram Studio</span> and procedural canvas engines like <span className="text-emerald-700 font-semibold">Skycast Atlas</span>, I build software that is fast, resilient, and human-centric.
+                    From completing a web development internship at <span className="text-emerald-700 font-semibold">Kenmerk Softwares</span> to engineering cloud diagramming suites like <span className="text-emerald-700 font-semibold">Smart Diagram Studio</span> and procedural canvas engines like <span className="text-emerald-700 font-semibold">Skycast Atlas</span>, I build software that is fast, resilient, and human-centric.
                   </p>
                 </div>
               </div>

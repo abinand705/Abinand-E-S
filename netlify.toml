@@ -1,0 +1,16 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Proxy FormConnect requests to eliminate CORS errors on Netlify
+[[redirects]]
+  from = "/api/formconnect/*"
+  to = "https://formconnect.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+# SPA fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -107,20 +107,20 @@ export const InteractiveTerminal: React.FC = () => {
           <div className="text-xs space-y-2 text-slate-700">
             <p className="text-teal-700 font-semibold">[FEATURED REPOSITORIES & SHIPPED BUILDS]</p>
             <div>
-              <a href="https://buyatchefco.com" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">1. ChefCo Hospitality Partners (Live B2B Platform)</a>
-              <span className="text-slate-500 text-[11px] block">Live B2B procurement platform with React.js & Node.js, category-filter URL query routing</span>
-            </div>
-            <div>
-              <a href="https://diagram-studio.onrender.com" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">2. Smart Diagram Studio</a>
+              <a href="https://diagram-studio.onrender.com" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">1. Smart Diagram Studio</a>
               <span className="text-slate-500 text-[11px] block">Full-stack visual graph tool with Firebase sync & undo/redo canvas</span>
             </div>
             <div>
-              <a href="https://sky-atlas-7sd.vercel.app/" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">3. Skycast Atlas</a>
+              <a href="https://sky-atlas-7sd.vercel.app/" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">2. Skycast Atlas</a>
               <span className="text-slate-500 text-[11px] block">Procedural canvas weather visualization engine with 60 FPS shaders</span>
             </div>
             <div>
-              <a href="https://github.com/abinand705/NEO-SPEEDSTER" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">4. NEO-SPEEDSTER</a>
+              <a href="https://github.com/abinand705/NEO-SPEEDSTER" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">3. NEO-SPEEDSTER</a>
               <span className="text-slate-500 text-[11px] block">Client-side network telemetry and latency quantification utility</span>
+            </div>
+            <div>
+              <a href="https://github.com/abinand705/Sci-Calculator" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline font-bold">4. Sci-Calculator</a>
+              <span className="text-slate-500 text-[11px] block">Native Android Kotlin calculator with algorithmic parsing</span>
             </div>
           </div>
         );
@@ -133,7 +133,7 @@ export const InteractiveTerminal: React.FC = () => {
             <p className="font-bold text-slate-900">Web Development Intern • Kenmerk Softwares Pvt Ltd</p>
             <p className="text-teal-700 text-[11px] font-mono">30-day internship • Bengaluru, India</p>
             <p className="text-slate-600 leading-relaxed text-[11px]">
-              Contributed to ChefCo Hospitality Partners (<a href="https://buyatchefco.com" target="_blank" rel="noreferrer" className="text-emerald-700 underline">buyatchefco.com</a>), a live B2B procurement platform, working across the React.js frontend and Node.js backend — including building out category-filter navigation with URL query-param routing.
+              Contributed to frontend and backend web development during a 30-day internship, developing modular React.js interface components, integrating Node.js backend endpoints, and implementing responsive client navigation.
             </p>
           </div>
         );

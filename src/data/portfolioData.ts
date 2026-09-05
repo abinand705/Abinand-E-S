@@ -32,16 +32,14 @@ export const EXPERIENCES: ExperienceItem[] = [
     duration: "30-day internship",
     type: "Internship",
     location: "Bengaluru, India",
-    description: "Contributed to ChefCo Hospitality Partners, a live B2B procurement platform, working across the React.js frontend and Node.js backend — including building out category-filter navigation with URL query-param routing.",
+    description: "Contributed to frontend and backend web development during a 30-day internship, developing modular React.js interface components, integrating Node.js backend endpoints, and implementing responsive client navigation.",
     contributions: [
       "Engineered dynamic category-filter navigation with synchronized URL query-parameter state for shareable, persistent catalog browsing",
-      "Developed responsive React.js interface components tailored for hospitality businesses, restaurants, and wholesale buyers",
-      "Connected and integrated Node.js backend API routes to efficiently fetch, filter, and paginate procurement catalogs",
-      "Collaborated on live production codebases with Git version control, performing code reviews and quality assurance"
+      "Developed responsive, accessible React.js interface components optimized across desktop and mobile form factors",
+      "Connected and integrated Node.js backend REST API routes to efficiently query, filter, and paginate catalog datasets",
+      "Collaborated on live development environments with Git version control, performing code reviews and quality assurance"
     ],
-    technologies: ["React.js", "Node.js", "JavaScript", "URL Query Routing", "REST APIs", "Tailwind CSS", "Git"],
-    projectName: "ChefCo Hospitality Partners",
-    projectLink: "https://buyatchefco.com"
+    technologies: ["React.js", "Node.js", "JavaScript", "URL Query Routing", "REST APIs", "Tailwind CSS", "Git"]
   }
 ];
 
@@ -64,24 +62,6 @@ export const EDUCATION: EducationItem[] = [
 ];
 
 export const PROJECTS: Project[] = [
-  {
-    id: "chefco-hospitality",
-    title: "ChefCo Hospitality Partners",
-    tagline: "Live B2B Procurement Platform for Hospitality & Food Service",
-    description: "Contributed to ChefCo Hospitality Partners, a live production B2B procurement platform connecting restaurants, hotels, bakeries, and cafes with wholesale packaging and supplies. Engineered key features across the React.js frontend and Node.js backend during a 30-day internship at Kenmerk Softwares Pvt Ltd, including dynamic category-filter navigation with URL query-param routing.",
-    category: "fullstack",
-    tags: ["React.js", "Node.js", "URL Query Routing", "REST APIs", "B2B Procurement", "Tailwind CSS"],
-    link: "https://buyatchefco.com",
-    githubLink: "https://github.com/abinand705",
-    featured: true,
-    accentColor: "emerald",
-    highlights: [
-      "Built category-filter navigation with synchronized URL query-param routing for seamless catalog exploration",
-      "Integrated React.js frontend components with Node.js backend endpoints for high-throughput product searches",
-      "Contributed to live production code serving commercial kitchens, cafes, and hospitality businesses"
-    ],
-    stats: { label: "Deployment", value: "Production B2B" }
-  },
   {
     id: "smart-diagram-studio",
     title: "Smart Diagram Studio",
@@ -127,7 +107,7 @@ export const PROJECTS: Project[] = [
     tags: ["JavaScript", "Web Performance APIs", "Network Workers", "Telemetry", "Chart.js"],
     link: "https://github.com/abinand705/NEO-SPEEDSTER",
     githubLink: "https://github.com/abinand705/NEO-SPEEDSTER",
-    featured: false,
+    featured: true,
     accentColor: "emerald",
     highlights: [
       "Multi-stream socket-free bandwidth testing using chunked HTTP streams",

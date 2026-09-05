@@ -31,9 +31,11 @@ export const ContactSection: React.FC = () => {
     setSending(true);
     setErrorMessage(null);
 
-    const apiUrl =
-      import.meta.env.VITE_FORMCONNECT_API_URL ||
-      'https://formconnect.onrender.com';
+    // Determine the optimal FormConnect endpoint
+    // On Netlify, route through the same-origin Netlify proxy to prevent CORS preflight blocks
+    const isNetlify = typeof window !== 'undefined' && window.location.hostname.endsWith('netlify.app');
+    const configuredApiUrl = import.meta.env.VITE_FORMCONNECT_API_URL;
+    const apiUrl = configuredApiUrl || (isNetlify ? '/api/formconnect' : 'https://formconnect.onrender.com');
     const apiKey =
       import.meta.env.VITE_FORMCONNECT_API_KEY ||
       'fc_live_e95e9fdf4fa86702779bea219e53402f';
@@ -42,6 +44,9 @@ export const ContactSection: React.FC = () => {
       ? apiUrl
       : `${apiUrl.replace(/\/$/, '')}/api/submit`;
 
+    let transmitted = false;
+
+    // 1. Primary Attempt: FormConnect
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -60,30 +65,58 @@ export const ContactSection: React.FC = () => {
         }),
       });
 
-      if (!response.ok) {
+      if (response.ok) {
+        transmitted = true;
+      } else {
         const errorData = await response.json().catch(() => null);
-        throw new Error(
-          errorData?.message ||
-            errorData?.error ||
-            `Submission failed with status ${response.status}`
-        );
+        console.warn('FormConnect responded with non-200:', errorData || response.status);
       }
+    } catch (err: any) {
+      console.warn('FormConnect transmission failed (likely CORS or network), attempting fallback:', err);
+    }
 
-      setSending(false);
+    // 2. Secondary Fallback: FormSubmit.co with universal CORS
+    if (!transmitted) {
+      try {
+        const fallbackRes = await fetch(`https://formsubmit.co/ajax/${PERSONAL_INFO.email}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            _subject: formData.subject || `Portfolio Message from ${formData.name}`,
+            message: formData.message,
+            _template: 'box',
+          }),
+        });
+
+        if (fallbackRes.ok) {
+          transmitted = true;
+        } else {
+          const fallbackData = await fallbackRes.json().catch(() => null);
+          console.warn('FormSubmit fallback response:', fallbackData || fallbackRes.status);
+        }
+      } catch (fallbackErr: any) {
+        console.error('All transmission methods failed:', fallbackErr);
+      }
+    }
+
+    setSending(false);
+
+    if (transmitted) {
       setSubmitted(true);
-
-      // Trigger celebratory confetti
       confetti({
         particleCount: 80,
         spread: 70,
         origin: { y: 0.7 },
         colors: ['#06b6d4', '#6366f1', '#a855f7', '#10b981'],
       });
-    } catch (err: any) {
-      console.error('FormConnect transmission failed:', err);
-      setSending(false);
+    } else {
       setErrorMessage(
-        err?.message || 'Failed to dispatch message. Please try again or email directly.'
+        'Unable to send automatically due to network/CORS restrictions. You can open your email app below to send directly.'
       );
     }
   };
@@ -291,11 +324,22 @@ export const ContactSection: React.FC = () => {
                   </div>
 
                   {errorMessage && (
-                    <div className="p-3.5 rounded-xl bg-red-50 border border-red-200/80 flex items-start gap-2.5 text-xs text-red-700">
-                      <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
-                      <div>
-                        <span className="font-semibold block mb-0.5">Submission issue</span>
-                        {errorMessage}
+                    <div className="p-4 rounded-xl bg-red-50 border border-red-200/80 space-y-3 text-xs text-red-700">
+                      <div className="flex items-start gap-2.5">
+                        <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                        <div>
+                          <span className="font-semibold block mb-0.5">Transmission issue</span>
+                          {errorMessage}
+                        </div>
+                      </div>
+                      <div className="pt-2 border-t border-red-200/60 flex items-center justify-between">
+                        <span className="text-slate-600">Send directly to {PERSONAL_INFO.email}:</span>
+                        <a
+                          href={`mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(formData.message)}`}
+                          className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-medium text-[11px] transition-colors shadow-xs"
+                        >
+                          Open Email Client →
+                        </a>
                       </div>
                     </div>
                   )}
