@@ -24,7 +24,7 @@ Built with React 19, TypeScript, Tailwind CSS v4, Motion, and HTML5 Canvas, this
   - Custom fluid mouse cursor with dynamic trailing physics and toggle support.
   - Scroll progress bar and floating elevator navigation to jump seamlessly between key sections.
 - 🗂️ **Showcased Projects & Modal Inspector**:
-  - Full-stack tools and applications including **Smart Diagram Studio** (React Flow & Firebase), **Skycast Atlas** (60 FPS canvas weather engine), **NEO-SPEEDSTER**, **Sci-Calculator** (Android/Kotlin), and **Data Pulse Explorer** (Python data analytics).
+  - Full-stack tools and applications including **Smart Diagram Studio** (React Flow & Firebase), **Skycast Atlas** (60 FPS canvas weather engine), **NEO-SPEEDSTER**, and **Sci-Calculator** (Android/Kotlin).
   - Modal view with deep-dive technical highlights, architecture details, and direct live/repo links.
 - 📊 **Skill & Capability Matrix**:
   - Categorized breakdown across Frontend & Creative Engineering, Backend & Data Analytics, AI & Intelligent Systems, and Methodologies & Tooling.
@@ -186,7 +186,7 @@ Built with React 19, TypeScript, Tailwind CSS v4, Motion, and HTML5 Canvas, this
   - Custom fluid mouse cursor with dynamic trailing physics and toggle support.
   - Scroll progress bar and floating elevator navigation to jump seamlessly between key sections.
 - 🗂️ **Showcased Projects & Modal Inspector**:
-  - Full-stack tools and applications including **Smart Diagram Studio** (React Flow & Firebase), **Skycast Atlas** (60 FPS canvas weather engine), **NEO-SPEEDSTER**, **Sci-Calculator** (Android/Kotlin), and **Data Pulse Explorer** (Python data analytics).
+  - Full-stack tools and applications including **Smart Diagram Studio** (React Flow & Firebase), **Skycast Atlas** (60 FPS canvas weather engine), **NEO-SPEEDSTER**, and **Sci-Calculator** (Android/Kotlin).
   - Modal view with deep-dive technical highlights, architecture details, and direct live/repo links.
 - 📊 **Skill & Capability Matrix**:
   - Categorized breakdown across Frontend & Creative Engineering, Backend & Data Analytics, AI & Intelligent Systems, and Methodologies & Tooling.

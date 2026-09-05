@@ -10,13 +10,18 @@ export const ProjectsSection: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>('all');
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
 
-  const filters = [
+  const allFilters = [
     { id: 'all', label: 'All Works' },
     { id: 'fullstack', label: 'Full-Stack' },
     { id: 'creative', label: 'Creative Canvas' },
     { id: 'tools', label: 'Tools & Mobile' },
     { id: 'analytics', label: 'Data Analytics' },
   ];
+
+  const availableCategories = new Set(PROJECTS.map((p) => p.category));
+  const filters = allFilters.filter(
+    (f) => f.id === 'all' || availableCategories.has(f.id as any)
+  );
 
   const filteredProjects = selectedFilter === 'all'
     ? PROJECTS

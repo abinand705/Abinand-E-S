@@ -133,24 +133,6 @@ export const PROJECTS: Project[] = [
       "Persistent calculation history reel with quick expression reuse"
     ],
     stats: { label: "Platform", value: "Native Android" }
-  },
-  {
-    id: "analytics-insight-hub",
-    title: "Data Pulse Explorer",
-    tagline: "Statistical Clustering & Exploratory Data Analysis Workbench",
-    description: "An analytical platform bridging Python statistical modeling with exploratory visual dashboards to surface correlations, cluster groupings, and predictive trends from multidimensional datasets.",
-    category: "analytics",
-    tags: ["Python", "Pandas", "Scikit-Learn", "Matplotlib", "FastAPI", "NumPy"],
-    link: "https://github.com/abinand705",
-    githubLink: "https://github.com/abinand705",
-    featured: false,
-    accentColor: "amber",
-    highlights: [
-      "Automated exploratory data profiling for distributions and outlier anomalies",
-      "K-Means clustering and dimensionality reduction visualizations",
-      "Clean REST API layer bridging Python computational kernels with web clients"
-    ],
-    stats: { label: "Analytics", value: "Data Science" }
   }
 ];
 
