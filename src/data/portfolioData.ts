@@ -123,7 +123,7 @@ export const PROJECTS: Project[] = [
     description: "A developer-first, self-hosted form submission backend and analytics dashboard. Features multi-tenant project management, instant API key issuance, rate-limiting spam protection, and automated email transmissions without third-party dependencies.",
     category: "fullstack",
     tags: ["Node.js", "Express", "React 19", "Prisma ORM", "JWT Auth", "REST APIs", "Rate Limiting"],
-    link: "https://formconnect.onrender.com",
+    link: "https://formconnect.vercel.app/",
     githubLink: "https://github.com/abinand705/formconnect",
     featured: true,
     accentColor: "emerald",
